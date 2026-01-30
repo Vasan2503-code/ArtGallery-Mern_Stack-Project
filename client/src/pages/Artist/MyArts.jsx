@@ -69,7 +69,7 @@ const MyArts = () => {
             <div className="pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-12">
                 <div className="flex justify-between items-center mb-8">
                     <div>
-                        <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-accent to-purple-500">Artist Dashboard</h1>
+                        <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-linear-to-r from-brand-accent to-purple-500">Artist Dashboard</h1>
                         <p className="text-gray-400 mt-1">Manage your portfolio and track your uploads.</p>
                     </div>
                     <Link to="/upload-art" className="bg-brand-accent hover:bg-pink-600 text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-all">

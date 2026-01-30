@@ -20,7 +20,7 @@ const Navbar = () => { // Removed props, reading from local storage for current 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
-                        <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-accent to-purple-600">
+                        <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-brand-accent to-purple-600">
                             ArtGallery
                         </Link>
                     </div>
@@ -88,10 +88,10 @@ const Navbar = () => { // Removed props, reading from local storage for current 
 
                         {role === 'artist' && (
                             <>
-                                <Link to="/upload-art" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2">
+                                <Link to="/upload-art" className="text-gray-300 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center gap-2">
                                     <Upload size={18} /> Upload Art
                                 </Link>
-                                <Link to="/my-arts" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2">
+                                <Link to="/my-arts" className="text-gray-300 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center gap-2">
                                     <Palette size={18} /> My Arts
                                 </Link>
                             </>
@@ -104,10 +104,10 @@ const Navbar = () => { // Removed props, reading from local storage for current 
                             </div>
                         ) : (
                             <>
-                                <Link to="/cart" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2">
+                                <Link to="/cart" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium items-center gap-2">
                                     <ShoppingBag size={18} /> Cart
                                 </Link>
-                                <button onClick={handleLogout} className="text-left w-full text-red-400 hover:bg-red-500/10 block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2">
+                                <button onClick={handleLogout} className="text-left w-full text-red-400 hover:bg-red-500/10 px-3 py-2 rounded-md text-base font-medium items-center gap-2">
                                     <LogOut size={18} /> Logout
                                 </button>
                             </>

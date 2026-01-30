@@ -88,7 +88,7 @@ const ProductDetails = () => {
                     </div>
                     <div className="flex flex-col justify-center space-y-6">
                         <div>
-                            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-text to-brand-accent mb-2">
+                            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-brand-text to-brand-accent mb-2">
                                 {art.title}
                             </h1>
                             <p className="text-xl text-gray-400 font-medium">by {art.artist?.name || 'Unknown Artist'}</p>
@@ -114,7 +114,7 @@ const ProductDetails = () => {
                                 <ShoppingCart size={20} /> {adding ? 'Adding...' : 'Add to Cart'}
                             </button>
 
-                            <button className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg shadow-purple-900/30">
+                            <button className="flex-1 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg shadow-purple-900/30">
                                 <MessageCircle size={20} /> Connect with Artist
                             </button>
                         </div>

@@ -63,7 +63,7 @@ const UploadArt = () => {
         <div className="min-h-screen bg-brand-bg text-white selection:bg-brand-accent/30">
             <Navbar />
             <div className="pt-24 px-4 sm:px-6 lg:px-8 max-w-2xl mx-auto pb-12">
-                <h1 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-brand-accent to-purple-500">
+                <h1 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-linear-to-r from-brand-accent to-purple-500">
                     Upload New Art
                 </h1>
 

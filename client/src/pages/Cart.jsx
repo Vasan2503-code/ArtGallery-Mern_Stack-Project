@@ -88,7 +88,7 @@ const Cart = () => {
                             {items.map((item) => (
                                 item.art && (
                                     <div key={item._id} className="bg-brand-dark p-4 rounded-xl border border-white/5 flex gap-4 items-center group hover:border-brand-accent/30 transition-colors">
-                                        <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                                        <div className="w-24 h-24 rounded-lg overflow-hidden shrink-0">
                                             <img
                                                 src={item.art.images && item.art.images.length > 0 ? getImageUrl(item.art.images[0].url) : 'https://placehold.co/100x100?text=No+Image'}
                                                 alt={item.art.title}

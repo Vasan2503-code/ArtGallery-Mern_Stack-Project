@@ -42,7 +42,7 @@ const Signup = () => {
 
             <div className="bg-brand-dark/50 backdrop-blur-lg border border-white/10 p-8 rounded-2xl shadow-2xl w-full max-w-md relative z-10 my-10">
                 <div className="text-center mb-8">
-                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-accent to-purple-500 mb-2">
+                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-linear-to-r from-brand-accent to-purple-500 mb-2">
                         Join the Community
                     </h1>
                     <p className="text-gray-400">Start your journey as a collector or artist</p>
