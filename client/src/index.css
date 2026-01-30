@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #1f2229;
+  --color-brand-dark: #16181d;
+  --color-brand-accent: #ff4d6d;
+  /* Pink/Red from image */
+  --color-brand-text: #ffffff;
+  --color-brand-text-muted: #9ca3af;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: 'Inter', system-ui, sans-serif;
+}
