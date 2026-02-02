@@ -12,7 +12,7 @@ app.use(cors()); // Use cors middleware
 const server = http.createServer(app); // Create HTTP server
 const io = new Server(server, {
     cors: {
-        origin: "*", // Allow all origins for dev. In prod, lock this down.
+        origin: "https://art-gallery-mern-stack-project.vercel.app/", // Allow all origins for dev. In prod, lock this down.
         methods: ["GET", "POST"]
     }
 });
