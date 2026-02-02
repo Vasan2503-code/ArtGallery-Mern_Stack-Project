@@ -20,7 +20,7 @@ const Navbar = () => { // Removed props, reading from local storage for current 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
-                        <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-brand-accent to-purple-600">
+                        <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-linear  -to-r from-brand-accent to-purple-600">
                             ArtGallery
                         </Link>
                     </div>

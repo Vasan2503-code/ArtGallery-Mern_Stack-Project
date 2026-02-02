@@ -8,7 +8,7 @@ const Signup = () => {
         name: "",
         email: "",
         password: "",
-        role: "customer", // Default role
+        role: "customer", 
     });
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -25,8 +25,6 @@ const Signup = () => {
             const data = await registerUser(formData);
             console.log("Signup success", data);
 
-            // Assuming successful registration redirects to login or automatically logs in
-            // For now, redirect to login
             navigate("/login");
         } catch (err) {
             console.error("Signup failed", err);
@@ -36,7 +34,6 @@ const Signup = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-brand-bg text-white relative overflow-hidden">
-            {/* Background blobs */}
             <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-accent rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
             <div className="absolute top-10 left-10 w-96 h-96 bg-purple-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 

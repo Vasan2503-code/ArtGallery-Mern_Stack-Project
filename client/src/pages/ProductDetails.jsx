@@ -3,6 +3,7 @@ import { ShoppingCart, MessageCircle, ArrowLeft } from "lucide-react";
 import Navbar from "../components/Navbar";
 import { getArtById, addToCart } from "../services/api"; // Import API function
 import { useState, useEffect } from "react";
+import Chat from "../components/Chat"; // Import Chat component
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -11,10 +12,21 @@ const ProductDetails = () => {
     const [loading, setLoading] = useState(true);
     const [adding, setAdding] = useState(false);
     const [role, setRole] = useState('customer');
+    const [showChat, setShowChat] = useState(false);
+    const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
         const storedRole = localStorage.getItem("role");
         if (storedRole) setRole(storedRole);
+
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            try {
+                setCurrentUser(JSON.parse(storedUser));
+            } catch (e) {
+                console.error("Error parsing user from local storage", e);
+            }
+        }
 
         const loadArt = async () => {
             try {
@@ -114,13 +126,26 @@ const ProductDetails = () => {
                                 <ShoppingCart size={20} /> {adding ? 'Adding...' : 'Add to Cart'}
                             </button>
 
-                            <button className="flex-1 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg shadow-purple-900/30">
+                            <button
+                                onClick={() => setShowChat(true)}
+                                className="flex-1 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg shadow-purple-900/30"
+                            >
                                 <MessageCircle size={20} /> Connect with Artist
                             </button>
                         </div>
                     </div>
                 </div>
             </main>
+
+            {/* Chat Component Overlay */}
+            {showChat && currentUser && art?.artist && (
+                <Chat
+                    currentUserId={currentUser.id || currentUser._id}
+                    artistId={art.artist._id || art.artist.id}
+                    artistName={art.artist.name}
+                    onClose={() => setShowChat(false)}
+                />
+            )}
         </div>
     );
 };
