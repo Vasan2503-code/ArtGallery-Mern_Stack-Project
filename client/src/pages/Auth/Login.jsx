@@ -25,6 +25,12 @@ const Login = () => {
             window.location.reload(); // Force refresh to update Navbar state (simple approach)
         } catch (err) {
             console.error("Login failed", err);
+            console.log("Failed Request Config:", {
+                baseURL: err.config?.baseURL,
+                url: err.config?.url,
+                method: err.config?.method,
+                fullUrl: (err.config?.baseURL || "") + (err.config?.url || "")
+            });
             setError("Invalid credentials. Please try again.");
         }
     };

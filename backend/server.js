@@ -12,7 +12,8 @@ app.use(cors()); // Use cors middleware
 const server = http.createServer(app); // Create HTTP server
 const io = new Server(server, {
     cors: {
-        origin: "https://art-gallery-mern-stack-project.vercel.app/", // Allow all origins for dev. In prod, lock this down.
+        // Allow local dev (localhost:5173) and production frontend
+        origin: ["http://localhost:5173", "https://artgallery-y0rw.onrender.com", "https://art-gallery-mern-stack-project.vercel.app"],
         methods: ["GET", "POST"]
     }
 });

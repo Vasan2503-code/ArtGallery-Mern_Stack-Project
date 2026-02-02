@@ -4,7 +4,7 @@ import axios from "axios";
 import { Send, X, MessageCircle, User } from "lucide-react";
 
 // Initialize socket outside component to prevent multiple connections on re-renders
-const socket = io("http://localhost:4000", {
+const socket = io("https://artgallery-y0rw.onrender.com", {
     autoConnect: false
 });
 
@@ -29,7 +29,7 @@ const Chat = ({ currentUserId, artistId, artistName, onClose }) => {
         if (isArtist) {
             const fetchConversations = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:4000/chat/conversations/${artistId}`);
+                    const response = await axios.get(`https://artgallery-y0rw.onrender.com/chat/conversations/${artistId}`);
                     setConversations(response.data);
                 } catch (error) {
                     console.error("Error fetching conversations:", error);
