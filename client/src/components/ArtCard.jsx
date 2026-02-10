@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 
+
 const ArtCard = ({ art }) => {
     return (
         <div className="group relative bg-brand-dark border border-white/5 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-brand-accent/10 transition-all duration-300 hover:-translate-y-1">
@@ -22,7 +23,7 @@ const ArtCard = ({ art }) => {
                 <div className="flex justify-between items-start mb-2">
                     <div>
                         <h3 className="text-xl font-bold text-white mb-1 group-hover:text-brand-accent transition-colors">{art.title}</h3>
-                        <p className="text-gray-400 text-sm">by {art.author}</p>
+                        <p className="text-gray-400 text-sm">by {art.artist?.name || "Unknown Artist"}</p>
                     </div>
                     <span className="text-brand-accent font-bold text-lg">
                         ${art.price}

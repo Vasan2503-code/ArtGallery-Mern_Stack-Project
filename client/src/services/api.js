@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create axios instance
 const api = axios.create({
-    baseURL : "https://artgallery-y0rw.onrender.com",
+    baseURL: "http://localhost:4000",
     headers: {
         "Content-Type": "application/json",
     },

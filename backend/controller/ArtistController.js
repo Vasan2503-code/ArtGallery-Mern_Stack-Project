@@ -38,8 +38,8 @@ const uploadArt = async (req, res) => {
             art: newArt
         });
     } catch (e) {
-        console.error(e);
-        res.status(500).json({ message: "Server side error" });
+        console.error("Upload Error:", e);
+        res.status(500).json({ message: "Server side error", error: e.message });
     }
 };
 
@@ -129,7 +129,7 @@ const getPublicArts = async (req, res) => {
             .sort(sortOption);
 
         res.status(200).json(arts);
-        console.log(arts);
+        // console.log(arts);
 
     } catch (e) {
         res.status(500).json({ message: "Server error" });
