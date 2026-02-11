@@ -6,6 +6,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import UploadArt from "./pages/Artist/UploadArt";
 import MyArts from "./pages/Artist/MyArts";
+import Payment from "./pages/Payment";
 import "./index.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/upload-art" element={<UploadArt />} />
         <Route path="/my-arts" element={<MyArts />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </BrowserRouter>
   );

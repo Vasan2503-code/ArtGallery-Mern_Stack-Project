@@ -123,7 +123,7 @@ const MyArts = () => {
                                     <h3 className="text-xl font-bold mb-1 truncate">{art.title}</h3>
                                     <p className="text-gray-400 text-sm mb-3 line-clamp-2">{art.description}</p>
                                     <div className="flex justify-between items-center text-sm">
-                                        <span className="text-brand-accent font-bold">${art.price}</span>
+                                        <span className="text-brand-accent font-bold">₹{art.price}</span>
                                         <span className="bg-white/10 px-2 py-1 rounded text-xs uppercase tracking-wider">{art.category}</span>
                                     </div>
                                 </div>

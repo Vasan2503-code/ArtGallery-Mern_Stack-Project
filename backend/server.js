@@ -22,6 +22,7 @@ const api = require('./routes/AuthRoutes')
 const art = require('./routes/ArtRoutes')
 const cart = require('./routes/CartRoutes')
 const chat = require('./routes/ChatRoutes')
+const payment = require('./routes/PaymentRoutes')
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -84,6 +85,7 @@ app.use('/verify', api);
 app.use('/art', art);
 app.use('/cart', cart);
 app.use('/chat', chat);
+app.use('/payment', payment);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 server.listen(process.env.PORT, () => {

@@ -2,9 +2,11 @@ import Navbar from "../components/Navbar";
 import { fetchCart, removeFromCart } from "../services/api"; // Import remove function
 import { useState, useEffect } from "react";
 import { Trash2, ShoppingBag, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+// import { Trash2, ShoppingBag, ArrowRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
+    const navigate = useNavigate();
     const [cart, setCart] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -99,14 +101,14 @@ const Cart = () => {
                                             <h3 className="text-xl font-bold text-white mb-1 group-hover:text-brand-accent transition-colors">{item.art.title}</h3>
                                             <p className="text-gray-400 text-sm">Quantity: {item.quantity}</p>
                                         </div>
-                                        <div className="text-right">
-                                            <p className="text-xl font-bold text-brand-accent">${item.art.price * item.quantity}</p>
+                                        <div className="text-right flex items-center gap-4">
+                                            <p className="text-xl font-bold text-brand-accent">₹{item.art.price * item.quantity}</p>
                                             <button
                                                 onClick={() => handleRemove(item.art._id)}
-                                                className="text-gray-500 hover:text-red-500 mt-2 p-2 transition-colors"
+                                                className="p-3 bg-white/5 hover:bg-brand-accent/20 rounded-full text-gray-400 hover:text-brand-accent transition-all transform hover:scale-110"
                                                 title="Remove"
                                             >
-                                                <Trash2 size={18} />
+                                                <Trash2 size={20} />
                                             </button>
                                         </div>
                                     </div>
@@ -122,20 +124,22 @@ const Cart = () => {
                                 <div className="space-y-3 mb-6">
                                     <div className="flex justify-between text-gray-300">
                                         <span>Subtotal</span>
-                                        <span>${calculateTotal()}</span>
+                                        <span>₹{calculateTotal()}</span>
                                     </div>
                                     <div className="flex justify-between text-gray-300">
                                         <span>Taxes (Estimated)</span>
-                                        <span>$0.00</span>
+                                        <span>₹0.00</span>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-between text-2xl font-bold text-white mb-8 pt-4 border-t border-white/10">
                                     <span>Total</span>
-                                    <span>${calculateTotal()}</span>
+                                    <span>₹{calculateTotal()}</span>
                                 </div>
 
-                                <button className="w-full bg-brand-accent text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-pink-600 transition-colors shadow-lg shadow-pink-900/20 transform hover:-translate-y-1">
+                                <button
+                                    onClick={() => navigate('/payment', { state: { amount: calculateTotal(), items: items, type: 'cart' } })}
+                                    className="w-full bg-brand-accent text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-pink-600 transition-colors shadow-lg shadow-pink-900/20 transform hover:-translate-y-1">
                                     Checkout <ArrowRight size={20} />
                                 </button>
                             </div>

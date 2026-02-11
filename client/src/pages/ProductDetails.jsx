@@ -113,7 +113,7 @@ const ProductDetails = () => {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <span className="text-3xl font-bold text-white">${art.price}</span>
+                            <span className="text-3xl font-bold text-white">₹{art.price}</span>
                             <span className="text-green-400 text-sm bg-green-400/10 px-2 py-1 rounded-full border border-green-400/20">Available</span>
                         </div>
 
@@ -133,20 +133,28 @@ const ProductDetails = () => {
                                 <MessageCircle size={20} /> Connect with Artist
                             </button>
                         </div>
+                        <button
+                            onClick={() => navigate('/payment', { state: { amount: art.price, items: [{ ...art, quantity: 1 }], type: 'single' } })}
+                            className="w-full mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-900/30"
+                        >
+                            Buy Now
+                        </button>
                     </div>
                 </div>
             </main>
 
             {/* Chat Component Overlay */}
-            {showChat && currentUser && art?.artist && (
-                <Chat
-                    currentUserId={currentUser.id || currentUser._id}
-                    artistId={art.artist._id || art.artist.id}
-                    artistName={art.artist.name}
-                    onClose={() => setShowChat(false)}
-                />
-            )}
-        </div>
+            {
+                showChat && currentUser && art?.artist && (
+                    <Chat
+                        currentUserId={currentUser.id || currentUser._id}
+                        artistId={art.artist._id || art.artist.id}
+                        artistName={art.artist.name}
+                        onClose={() => setShowChat(false)}
+                    />
+                )
+            }
+        </div >
     );
 };
 

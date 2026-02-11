@@ -26,7 +26,7 @@ const ArtCard = ({ art }) => {
                         <p className="text-gray-400 text-sm">by {art.artist?.name || "Unknown Artist"}</p>
                     </div>
                     <span className="text-brand-accent font-bold text-lg">
-                        ${art.price}
+                        ₹{art.price}
                     </span>
                 </div>
                 <Link to={`/product/${art._id || art.id}`} className="absolute inset-0 z-10" aria-label={`View details of ${art.title}`} />
