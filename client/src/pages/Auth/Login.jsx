@@ -31,7 +31,10 @@ const Login = () => {
                 method: err.config?.method,
                 fullUrl: (err.config?.baseURL || "") + (err.config?.url || "")
             });
-            setError("Invalid credentials. Please try again.");
+
+            // Extract error message from backend response
+            const errorMessage = err.response?.data?.message || err.response?.data || "Invalid credentials. Please try again.";
+            setError(errorMessage);
         }
     };
 
