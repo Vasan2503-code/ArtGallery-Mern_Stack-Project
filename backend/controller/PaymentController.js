@@ -1,13 +1,22 @@
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
 
-const razorpay = new Razorpay({
-    key_id: process.env.RAZOR_API_ID,
-    key_secret: process.env.RAZOR_API_SECRET
-});
+let razorpay;
+
+if (process.env.RAZOR_API_ID && process.env.RAZOR_API_SECRET) {
+    razorpay = new Razorpay({
+        key_id: process.env.RAZOR_API_ID,
+        key_secret: process.env.RAZOR_API_SECRET
+    });
+} else {
+    console.error("Razorpay keys are missing. Payment integration will not work.");
+}
 
 const createOrder = async (req, res) => {
     try {
+        if (!razorpay) {
+            return res.status(500).send("Payment system not configured properly.");
+        }
         const { amount, currency } = req.body;
 
         const options = {
@@ -29,6 +38,9 @@ const createOrder = async (req, res) => {
 
 const verifyPayment = async (req, res) => {
     try {
+        if (!razorpay) {
+            return res.status(500).send("Payment system not configured properly.");
+        }
         const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
 
         const sign = razorpay_order_id + "|" + razorpay_payment_id;
