@@ -1,5 +1,5 @@
 const express = require("express")
-require('dotenv').config();
+require('dotenv').config(); 
 const connectDB = require("./config/db")
 const path = require("path");
 const http = require('http'); // Import http
@@ -16,7 +16,7 @@ const io = new Server(server, {
         origin: ["http://localhost:5173", "https://artgallery-y0rw.onrender.com", "https://art-gallery-mern-stack-project.vercel.app"],
         methods: ["GET", "POST"]
     }
-});
+}); 
 
 const api = require('./routes/AuthRoutes')
 const art = require('./routes/ArtRoutes')
